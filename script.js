@@ -2,7 +2,7 @@ var elEncabezado = document.querySelector("header");
 var elColor, campeon;
 
 function preload() {
-    campeon = loadJSON("https://github.com/NicoGaona/json/blob/main/monos.json");
+    campeon = loadJSON("https://raw.githubusercontent.com/NicoGaona/json/main/monos.json");
 }
 
 function setup() {
