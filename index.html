@@ -39,7 +39,7 @@
                     nombres.push(p.name);
                     imagenes.push(p.img);
                 });
-                var x = Math.round(random(0, imagenes.length));
+                var x = Math.round(random(0, imagenes.length-1));
                 console.log(x);
                 createA("https://universe.leagueoflegends.com/", nombres[x]).parent("name");
                 createImg(imagenes[x], "Lolero").position(600, 10).style("z-index", "-1");
