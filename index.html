@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Prueba 1" />
+        <link href="style.css" rel="stylesheet" />
+        <title>Prueba 1 nuevos medios</title>
+    </head>
+    <body>
+        <header>
+            <h1>Es hora de dibujar.</h1>
+        </header>
+
+        <main>
+            <p>Podrías dibujar a <span id="name"></span>?</p>
+        </main>
+
+        <footer>
+            <div></div>
+            <div></div>
+            <div id="next"></div>
+        </footer>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"
+            integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script>
+            function preload() {
+                campeones = loadJSON("https://raw.githubusercontent.com/NicoGaona/json/main/monos.json");
+            }
+
+            function setup() {
+                var nombres = [];
+                var imagenes = [];
+                Object.values(campeones).forEach((p) => {
+                    nombres.push(p.name);
+                    imagenes.push(p.img);
+                });
+                var x = Math.round(random(0, imagenes.length));
+                console.log(x);
+                createA("https://universe.leagueoflegends.com/", nombres[x]).parent("name");
+                createImg(imagenes[x], "Lolero").position(600, 10).style("z-index", "-1");
+
+                noCanvas();
+
+                var palabras = ["por acá", "let's go", "vamos", "demosle"];
+                var p = random(palabras);
+                console.log(p);
+                createA("page.html", p).parent("next");
+                noCanvas();
+            }
+        </script>
+    </body>
+</html>
